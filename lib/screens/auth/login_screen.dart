@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../services/authService.dart';
 import '../../validators.dart';
-import '../welcome/welcome_screen.dart';
+import '../anonymous/welcome_screen.dart';
 import '../widgets/footer.dart';
 import '../widgets/loading.dart';
 
@@ -17,7 +17,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late String email;
   late String password;
-  late LabeledGlobalKey<FormState> key = LabeledGlobalKey<FormState>("LoginForm");
+  late LabeledGlobalKey<FormState> key =
+      LabeledGlobalKey<FormState>("LoginForm");
 
   bool shouldValidate = false;
   bool isLoggingIn = false;
@@ -25,13 +26,17 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Form(
-        autovalidateMode: shouldValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
+        autovalidateMode: shouldValidate
+            ? AutovalidateMode.always
+            : AutovalidateMode.disabled,
         key: key,
         child: Padding(
-          padding: const EdgeInsets.only(top: 60.0, bottom: 20.0, left: 20.0, right: 20.0),
+          padding: const EdgeInsets.only(
+              top: 60.0, bottom: 20.0, left: 20.0, right: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,28 +102,34 @@ class _LoginScreenState extends State<LoginScreen> {
                                       isLoggingIn = true;
                                     });
                                     AuthAPI auth = AuthAPI();
-                                    final response = await auth.loginUser(email, password);
+                                    final response =
+                                        await auth.loginUser(email, password);
                                     setState(() {
                                       isLoggingIn = false;
                                     });
-                                    if (response.errorMessage == null && response.data != null) {
+                                    if (response.errorMessage == null &&
+                                        response.data != null) {
                                       if (context.mounted) {
                                         Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) {
-                                              return WelcomeScreen(user: response.data!);
+                                              return WelcomeScreen(
+                                                  user: response.data!);
                                             },
                                           ),
                                         );
                                       }
                                     } else {
                                       if (context.mounted) {
-                                        ScaffoldMessenger.of(context).showSnackBar(
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
                                           SnackBar(
-                                            content: Text(response.errorMessage!),
+                                            content:
+                                                Text(response.errorMessage!),
                                             elevation: 2,
-                                            duration: const Duration(seconds: 3),
+                                            duration:
+                                                const Duration(seconds: 3),
                                             behavior: SnackBarBehavior.floating,
                                             margin: const EdgeInsets.all(5),
                                           ),
@@ -131,7 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ? const MiniCPI()
                               : const Text(
                                   'Login',
-                                  style: TextStyle(fontSize: 25.0, color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 25.0, color: Colors.white),
                                 ),
                         ),
                       ),

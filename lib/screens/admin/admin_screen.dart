@@ -71,7 +71,7 @@ class _AdminScreenState extends State<AdminScreen> {
       drawer: NavBar(
         user: widget.user,
       ),
-      bottomNavigationBar: BottomTabBar(onItemTapped: _onItemTapped),
+      bottomNavigationBar: BottomTabBar(onItemTapped: _onItemTapped, userState: "Admin", context2: context,),
     );
   }
 

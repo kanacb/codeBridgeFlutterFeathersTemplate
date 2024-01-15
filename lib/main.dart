@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:vx_oil_futures4/screens/welcome/landing_screen.dart';
+import 'package:vx_oil_futures4/screens/anonymous/anonymous_screen.dart';
+import 'package:vx_oil_futures4/screens/anonymous/welcome_screen.dart';
 import './screens/auth/login_screen.dart';
 import './messages/messages_screen.dart';
-import './screens/welcome/welcome_screen.dart';
 import './services/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feathersjs/flutter_feathersjs.dart';

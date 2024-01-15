@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../global.dart';
-import '../../screens/drawer/new_email.dart';
-import '../../screens/drawer/new_password.dart';
+import '../../screens/profile/new_email.dart';
+import '../../screens/profile/new_password.dart';
 import '../../services/utils.dart';
 import '../../components/users/users.dart';
-import '../drawer/preferences.dart';
-import '../drawer/settings.dart';
+import '../profile/preferences.dart';
+import '../profile/settings.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key, required this.user});
