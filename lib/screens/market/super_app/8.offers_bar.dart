@@ -15,7 +15,7 @@ class OffersBar extends StatefulWidget {
 class _OffersBarState extends State<OffersBar> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Offers Bar"),
     );
   }

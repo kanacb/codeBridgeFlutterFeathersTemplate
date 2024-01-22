@@ -45,11 +45,12 @@ class _LandingScreenState extends State<LandingScreen>
 
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> currentState = Utils.getUserState("anonymous");
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "get On Board",
-          style: TextStyle(color: Colors.black87),
+        title: Text(
+          currentState['header'],
+          style: const TextStyle(color: Colors.black87),
         ),
         actions: [
           IconButton(
@@ -70,13 +71,62 @@ class _LandingScreenState extends State<LandingScreen>
         ],
       ),
       body: SingleChildScrollView(
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          const SizedBox(height: 15),
-          const Text(projectName),
-          const SizedBox(height: 35),
-          _screens[_selectedIndex],
-        ]),
+        child: Container(
+          decoration: const BoxDecoration(
+            // image: DecorationImage(
+            //   image: AssetImage('assets/images/anonymous_bg.png'),
+            //   fit: BoxFit.fill,
+            // ),
+            color: Colors.white,
+            shape: BoxShape.rectangle,
+          ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SizedBox(height: 15,),
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/oil-traders.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: 85,
+                        width: MediaQuery.of(context).size.width - 30,
+                      ),
+
+                    ],
+                  ),
+                ),
+                const Text(
+                  projectDescription,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(fontSize: 12, color: Colors.black87),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                const Text(
+                  projectName,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                      color: colorWarning,
+                      fontSize: 21,
+                      fontWeight: FontWeight.w900),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                _screens[_selectedIndex],
+              ]),
+        ),
       ),
       bottomNavigationBar: BottomTabBar(
         onItemTapped: _onItemTapped,

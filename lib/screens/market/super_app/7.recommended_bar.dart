@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+import '../../../components/commodities/commoditiesCards.dart';
 import '../../../components/users/users.dart';
 
 class RecommendedBar extends StatefulWidget {
@@ -15,8 +16,6 @@ class RecommendedBar extends StatefulWidget {
 class _RecommendedBarState extends State<RecommendedBar> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Recommended Bar"),
-    );
+    return const CommoditiesCards();
   }
 }

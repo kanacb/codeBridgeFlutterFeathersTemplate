@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:vx_oil_futures4/screens/market/super_app/5.subscribe_bar.dart';
 import '../../../components/businesses/businesses.dart';
+import '../../../components/request4quote/request4quoteCards.dart';
 import '../../../components/users/users.dart';
 import '1.title_bar.dart';
 import '2.search_bar.dart';
@@ -26,6 +27,9 @@ class _SuperAppState extends State<SuperApp> {
   Widget build(BuildContext context) {
     return  SingleChildScrollView(
       child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TitleBar(user: widget.user),
           SearchBar(user: widget.user),
