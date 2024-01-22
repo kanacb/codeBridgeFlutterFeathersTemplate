@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../services/authService.dart';
+import '../../services/utils.dart';
 import '../../validators.dart';
 import '../anonymous/welcome_screen.dart';
 import '../widgets/footer.dart';
@@ -110,15 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     if (response.errorMessage == null &&
                                         response.data != null) {
                                       if (context.mounted) {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) {
-                                              return WelcomeScreen(
-                                                  user: response.data!);
-                                            },
-                                          ),
-                                        );
+                                        return Utils.redirectUser(context);
                                       }
                                     } else {
                                       if (context.mounted) {

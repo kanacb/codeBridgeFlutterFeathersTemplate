@@ -11,7 +11,7 @@ class MessagesAPI {
     String? error;
     try {
       Map<String, dynamic> response = await flutterFeathersJS.scketio.find(
-        serviceName: "message",
+        serviceName: "messages",
         query: {},
       );
       logger.i(response.toString());

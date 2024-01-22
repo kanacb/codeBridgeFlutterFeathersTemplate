@@ -8,8 +8,9 @@ import '../widgets/footer.dart';
 import '../widgets/loading.dart';
 import 'login_screen.dart';
 
+
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+   const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -131,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) {
-                                            return const LoginScreen();
+                                            return  const LoginScreen();
                                           },
                                         ),
                                       );
@@ -169,9 +170,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        height: 140,
-                      ),
+                      const SizedBox(height: 140,),
                       const Text(
                         'Already have an account?',
                         style: TextStyle(fontSize: 16.0),
@@ -202,3 +201,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 }
+

@@ -26,7 +26,8 @@ class MessagesScreenState extends State<MessagesScreen> {
   void animateList() {
     scrollController.jumpTo(scrollController.position.maxScrollExtent);
     Future.delayed(const Duration(milliseconds: 100), () {
-      if (scrollController.offset != scrollController.position.maxScrollExtent) {
+      if (scrollController.offset !=
+          scrollController.position.maxScrollExtent) {
         animateList();
       }
     });
@@ -68,29 +69,10 @@ class MessagesScreenState extends State<MessagesScreen> {
         titleSpacing: 10,
         title: const Text(
           'Notifications',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
         ),
         backgroundColor: colorPrimary,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.people_alt_outlined),
-            splashColor: Colors.transparent,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const UsersScreen();
-                  },
-                ),
-              );
-            },
-            tooltip: "View all users",
-          ),
-          const SizedBox(
-            width: 8,
-          )
-        ],
       ),
       body: isLoading
           ? const LoadingWidget()
@@ -114,16 +96,20 @@ class MessagesScreenState extends State<MessagesScreen> {
                               controller: scrollController,
                               physics: const BouncingScrollPhysics(),
                               itemCount: messages.length,
-                              itemBuilder: (context, index) => messages[index].isMe
-                                  ? SenderMessageTile(content: messages[index].content)
-                                  : ReceiverMessageTile(content: messages[index].content),
+                              itemBuilder: (context, index) =>
+                                  messages[index].isMe
+                                      ? SenderMessageTile(
+                                          content: messages[index].content)
+                                      : ReceiverMessageTile(
+                                          content: messages[index].content),
                             )
                       : Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Center(
                             child: Text(
                               error!,
-                              style: const TextStyle(fontSize: 16, color: Colors.red),
+                              style: const TextStyle(
+                                  fontSize: 16, color: Colors.red),
                             ),
                           ),
                         ),
@@ -153,7 +139,8 @@ class MessagesScreenState extends State<MessagesScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Message msg = Message(content: controller.text, isMe: true);
+                          Message msg =
+                              Message(content: controller.text, isMe: true);
                           messagesAPI.createMessage(msg).whenComplete(() {
                             animateList();
                             messages.add(msg);
@@ -162,7 +149,8 @@ class MessagesScreenState extends State<MessagesScreen> {
                           });
                         },
                         onLongPress: () {
-                          Message msg = Message(content: controller.text, isMe: true);
+                          Message msg =
+                              Message(content: controller.text, isMe: true);
                           messagesAPI.createMessage(msg).whenComplete(() {
                             animateList();
                             messages.add(msg);

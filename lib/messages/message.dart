@@ -13,7 +13,7 @@ class Message {
   factory Message.fromMap(Map<String, dynamic> map) {
     return Message(
       content: map['message'] as String,
-      isMe: random.nextBool(),
+      isMe: map['isMe'],
       id: map['id'] as int,
     );
   }
