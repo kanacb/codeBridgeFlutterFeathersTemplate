@@ -115,36 +115,38 @@ class _ChangePasswordState extends State<ChangePassword> {
                                 backgroundColor: const Color(0xff447def),
                               ),
                               onPressed: () async {
-                                if (key.currentState!.validate()) {
-                                  key.currentState!.save();
-                                  setState(() {
-                                    isChanging = true;
-                                  });
-                                  UsersService usersService = UsersService();
-                                  final response = await usersService.patch(widget.user.id , { "password" : newPassword});
-                                  setState(() {
-                                    isChanging = false;
-                                  });
-                                  if (response.errorMessage == null) {
-                                    logger.i(response.data!.toString());
-                                    if (context.mounted) {
-                                      Navigator.pop(context);
-                                    }
-                                  } else {
+                                // if (key.currentState!.validate()) {
+                                //   key.currentState!.save();
+                                //   setState(() {
+                                //     isChanging = true;
+                                //   });
+                                //   UsersService usersService = UsersService();
+                                //   final response = await usersService.patch(widget.user.id , { "password" : newPassword});
+                                //   setState(() {
+                                //     isChanging = false;
+                                //   });
+                                //   if (response.errorMessage == null) {
+                                //     logger.i(response.data!.toString());
+                                //     if (context.mounted) {
+                                //       Navigator.pop(context);
+                                //     }
+                                //   } else {
                                     if (context.mounted) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
-                                          content: Text(response.errorMessage!),
+
+                                        const SnackBar(
+                                          backgroundColor: Colors.blueGrey,
+                                          content: Text("Currently unavailable", style: TextStyle(fontWeight: FontWeight.w200, fontSize: 14),),
                                           elevation: 2,
-                                          duration: const Duration(seconds: 3),
+                                          duration: Duration(seconds: 3),
                                           behavior: SnackBarBehavior.floating,
-                                          margin: const EdgeInsets.all(5),
+                                          margin: EdgeInsets.all(5),
                                         ),
                                       );
                                     }
-                                  }
-                                }
+                                  // }
+                                // }
                               },
                               child: isChanging
                                   ? const MiniCPI()

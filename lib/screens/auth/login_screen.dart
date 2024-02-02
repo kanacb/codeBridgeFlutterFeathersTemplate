@@ -4,7 +4,6 @@ import '../../screens/auth/register_screen.dart';
 import '../../services/authService.dart';
 import '../../services/utils.dart';
 import '../../validators.dart';
-import '../anonymous/welcome_screen.dart';
 import '../widgets/footer.dart';
 import '../widgets/loading.dart';
 

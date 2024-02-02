@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import '../../global.dart';
 
 class BottomTabBar extends StatefulWidget {
-  const BottomTabBar(
+   BottomTabBar(
       {super.key,
       required this.onItemTapped,
       required this.userState,
+        required this.selectedIndex,
       required this.context2});
   final onItemTapped;
   final String userState;
+   int selectedIndex;
   final BuildContext context2;
 
   @override
@@ -17,7 +19,6 @@ class BottomTabBar extends StatefulWidget {
 }
 
 class _BottomTabBarState extends State<BottomTabBar> {
-  int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -48,15 +49,16 @@ class _BottomTabBarState extends State<BottomTabBar> {
             label: 'Home',
             backgroundColor: colorPrimary),
         BottomNavigationBarItem(
-          icon: Icon(Icons.currency_exchange_rounded),
-          label: 'Market',
-        ),
+            icon: Icon(Icons.currency_exchange_rounded),
+            label: 'Wallet',
+            backgroundColor: colorPrimary),
         BottomNavigationBarItem(
           icon: Icon(Icons.line_axis_rounded),
           label: 'Trends',
+          backgroundColor: colorPrimary,
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: widget.onItemTapped,
     );
@@ -81,7 +83,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
           label: 'Trends',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: widget.onItemTapped,
     );
@@ -103,7 +105,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
             backgroundColor: colorPrimary),
         BottomNavigationBarItem(
           icon: Icon(Icons.currency_exchange_rounded),
-          label: 'Market',
+          label: 'Wallet',
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.card_travel_outlined),
@@ -114,7 +116,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
           label: 'Trends',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: widget.onItemTapped,
     );
@@ -132,14 +134,14 @@ class _BottomTabBarState extends State<BottomTabBar> {
             backgroundColor: colorPrimary),
         BottomNavigationBarItem(
           icon: Icon(Icons.currency_exchange_rounded),
-          label: 'Market',
+          label: 'Wallet',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.line_axis_rounded),
           label: 'Trends',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: widget.onItemTapped,
     );
@@ -161,7 +163,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.currency_exchange_rounded),
-          label: 'Market',
+          label: 'Wallet',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.currency_exchange_rounded),
@@ -172,7 +174,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
           label: 'Trends',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: Colors.amber[800],
       onTap: widget.onItemTapped,
     );

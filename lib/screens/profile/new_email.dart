@@ -12,12 +12,15 @@ class ChangeEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     late String email = "";
     late LabeledGlobalKey<FormState> key =
-    LabeledGlobalKey<FormState>("ChangeEmail");
+        LabeledGlobalKey<FormState>("ChangeEmail");
 
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(title: Text(user.name)),
+        appBar: AppBar(
+            title: Text("Hi, ${user.name}",
+                style: const TextStyle(
+                    fontSize: 14, fontWeight: FontWeight.w200))),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Form(
@@ -48,48 +51,56 @@ class ChangeEmail extends StatelessWidget {
                           email = value!;
                         },
                         decoration: const InputDecoration(
-                          hintText: 'New Email',
-                          labelText: 'New Email',
+                          hintText: 'Enter your new email address',
+                          labelText: 'My New Email',
                         ),
                       ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(
+                        height: 80,
+                      ),
                       Row(
                         children: [
                           Expanded(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 padding:
-                                const EdgeInsets.symmetric(vertical: 10.0),
+                                    const EdgeInsets.symmetric(vertical: 10.0),
                                 backgroundColor: const Color(0xff447def),
                               ),
                               onPressed: () async {
-                                if (key.currentState!.validate()) {
-                                  key.currentState!.save();
-                                  UsersService usersService = UsersService();
-                                  final response = await usersService.patch(user.id , { "email" : email});
-                                  if (response.errorMessage == null) {
-                                    logger.i(response.data!.toString());
-                                    if (context.mounted) {
-                                      Navigator.pop(context);
-                                    }
-                                  } else {
-                                    if (context.mounted) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(response.errorMessage!),
-                                          elevation: 2,
-                                          duration: const Duration(seconds: 3),
-                                          behavior: SnackBarBehavior.floating,
-                                          margin: const EdgeInsets.all(5),
-                                        ),
-                                      );
-                                    }
-                                  }
+                                // if (key.currentState!.validate()) {
+                                //   key.currentState!.save();
+                                //   UsersService usersService = UsersService();
+                                //   final response = await usersService
+                                //       .patch(user.id, {"email": email});
+                                //   if (response.errorMessage == null) {
+                                //     logger.i(response.data!.toString());
+                                //     if (context.mounted) {
+                                //       Navigator.pop(context);
+                                //     }
+                                // } else {
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      backgroundColor: Colors.blueGrey,
+                                      content: Text(
+                                        "Currently not available",
+                                        style: TextStyle(
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w200),
+                                      ),
+                                      elevation: 2,
+                                      duration: Duration(seconds: 3),
+                                      behavior: SnackBarBehavior.floating,
+                                      margin: EdgeInsets.all(5),
+                                    ),
+                                  );
                                 }
+                                // }
                               },
+                              // },
                               child: const Text(
-                                'Verify',
+                                'Send verification link to',
                                 style: TextStyle(
                                     fontSize: 25.0, color: Colors.white),
                               ),
@@ -97,6 +108,7 @@ class ChangeEmail extends StatelessWidget {
                           ),
                         ],
                       ),
+                      Text(user.email),
                     ],
                   ),
                 ],

@@ -17,7 +17,6 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-
   @override
   void initState() {
     super.initState();
@@ -58,17 +57,10 @@ class _NavBarState extends State<NavBar> {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.account_balance_wallet_rounded),
-          title: const Text('Billings'),
-          onTap: () {
-            Navigator.of(context).pushNamed("/messages");
-          },
-        ),
-        ListTile(
           leading: const Icon(Icons.favorite_outline_rounded),
           title: const Text('Favorites'),
           onTap: () {
-            Navigator.of(context).pushNamed("/messages");
+            Navigator.of(context).pushNamed("/favorites");
           },
         ),
         ListTile(
@@ -131,8 +123,19 @@ class _NavBarState extends State<NavBar> {
           leading: const Icon(Icons.logout_outlined),
           title: const Text('Logout'),
           onTap: () {
-            Utils.removeItemFromLocalStorage(("user"));
-            Navigator.pushReplacementNamed(context, "/logout");
+            Utils.removeAllFromLocalStorage();
+            Navigator.pushReplacementNamed(context, "/login");
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.account_balance_outlined),
+          title: const Text('About'),
+          onTap: () {
+            showAboutDialog(
+                context: context,
+                applicationVersion: '2.0.1',
+                applicationIcon: Icon(Icons.add),
+                applicationLegalese: 'Blah');
           },
         ),
       ],

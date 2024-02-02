@@ -1,6 +1,6 @@
 class API {
   // development
-  // static const baseUrl = "http://192.168.1.4:3030/";
+  // static const baseUrl = "http://192.168.1.9:3030/";
   // staging
   static const baseUrl = "https://oil-futures.apps.uat.codebridge.live/";
   static const secret =
@@ -10,12 +10,11 @@ class API {
 class APIResponse<T> {
   final String? errorMessage;
   final T? data;
-    Map<String, dynamic>? response;
-  APIResponse({
-    required this.errorMessage,
-    required this.data,
-    this.response
-  }) : assert(
+  Map<String, dynamic>? response;
+  List<dynamic>? object;
+  
+  APIResponse({required this.errorMessage, required this.data, this.response, List? object})
+      : assert(
           (errorMessage == null && data != null) ||
               (errorMessage != null && data == null),
         );

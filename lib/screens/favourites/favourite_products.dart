@@ -36,7 +36,7 @@ class _FavoriteProductsState extends State<FavoriteProducts> {
             !projectSnap.hasData)) {
           return const Text("No data");
         }
-        if (projectSnap.data.data == null) {
+        if (projectSnap.data == null) {
           return const Text("No Connection");
         }
         return SizedBox(
@@ -96,7 +96,7 @@ class _FavoriteProductsState extends State<FavoriteProducts> {
       subtitle: Padding(
         padding: const EdgeInsets.only(left: 8, top: 4),
         child: Text('Delivery ${delivery.fromNow()}',
-            style: TextStyle(fontSize: 10)),
+            style: const TextStyle(fontSize: 10)),
       ),
     );
   }

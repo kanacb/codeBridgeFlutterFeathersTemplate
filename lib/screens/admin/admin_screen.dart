@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../messages/messages_tab.dart';
 import '../../services/utils.dart';
 import 'admin_activities_screen.dart';
 import 'admin_home_screen.dart';
@@ -8,7 +9,6 @@ import 'admin_market_screed.dart';
 import 'admin_trends_screen.dart';
 import '../../components/users/users.dart';
 import '../../global.dart';
-import '../../messages/messages_screen.dart';
 import '../widgets/nav_bar.dart';
 import '../widgets/tab_bar.dart';
 
@@ -52,7 +52,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const MessagesScreen();
+                    return const MessagesTab();
                   },
                 ),
               );
@@ -70,6 +70,7 @@ class _AdminScreenState extends State<AdminScreen> {
       bottomNavigationBar: BottomTabBar(
         onItemTapped: _onItemTapped,
         userState: "admin",
+        selectedIndex: _selectedIndex,
         context2: context,
       ),
     );

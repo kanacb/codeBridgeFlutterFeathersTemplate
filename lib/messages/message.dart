@@ -1,23 +1,27 @@
-import '../../global.dart';
-
 class Message {
+  final String? id;
+  final String groupId;
   final String content;
-  final bool isMe;
-  final int? id;
-  Message({
-    required this.content,
-    required this.isMe,
-    this.id,
-  });
+  final DateTime? date;
+  final String? createdBy;
+
+  Message(
+      {this.id,
+      required this.groupId,
+      required this.content,
+      this.date,
+      this.createdBy});
 
   factory Message.fromMap(Map<String, dynamic> map) {
     return Message(
-      content: map['message'] as String,
-      isMe: map['isMe'],
-      id: map['id'] as int,
-    );
+        id: map['_id'] as String,
+        groupId: map['groupId'] as String,
+        content: map['content'] as String,
+        date: DateTime.parse(map['date']),
+        createdBy: map['createdBy'] as String);
   }
 
   @override
-  String toString() => 'Message(id: $id, content: $content, isMe: $isMe)';
+  String toString() =>
+      'Message(id: $id, groupId: $groupId, content: $content, createBy: $createdBy, date: $date)';
 }

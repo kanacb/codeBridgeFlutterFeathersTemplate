@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_feathersjs/flutter_feathersjs.dart';
+import 'package:vx_oil_futures4/components/businesses/businessesService.dart';
 import '../../global.dart';
 import '../../main.dart';
 import '../components/users/users.dart';
@@ -9,19 +11,31 @@ class AuthAPI {
   Future<APIResponse<Users>> loginUser(String email, String password) async {
     Users? user;
     String? error;
+    Map<String, dynamic>? response;
 
     try {
-      Map<String, dynamic> response = await flutterFeathersJS.rest.authenticate(
-        userName: email,
-        password: password,
-        strategy: "local",
-        userNameFieldName: "email"
-      );
+      response = await flutterFeathersJS.authenticate(
+          userName: email, password: password, strategy: "local");
 
-      user = Users.fromMap(response);
-      // If all thing is ok, save user in local storage
-      Utils.removeItemFromLocalStorage("user");
-      Utils.addItemsToLocalStorage('user',response);
+      if (response != null) {
+        user = Users.fromMap(response);
+        // If all thing is ok, save user in local storage
+        Utils.removeAllFromLocalStorage();
+        Utils.addItemsToLocalStorage('user', response);
+        if (user.businessId != null) {
+          BusinessesService businessesService = BusinessesService();
+          var businessResponse = await businessesService.get(user.businessId!);
+
+          if (businessResponse.errorMessage == null) {
+            Utils.addItemsToLocalStorage(
+                'business', businessResponse.response!);
+          }
+        }
+      } else {
+        if (kDebugMode) {
+          print("response is null");
+        }
+      }
     } on FeatherJsError catch (e) {
       error = "Unexpected error occurred, please retry!";
       if (e.type == FeatherJsErrorType.IS_INVALID_CREDENTIALS_ERROR) {
