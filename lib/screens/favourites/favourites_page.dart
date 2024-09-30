@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/screens/favourites/favourite_products.dart';
+import '../../screens/favourites/favourite_products.dart';
 
 class FavouritesPage extends StatefulWidget {
   const FavouritesPage({super.key});
