@@ -1,3 +1,4 @@
+import './messages/group.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import './screens/anonymous/anonymous_screen.dart';
@@ -14,7 +15,7 @@ import './components/users/users.dart';
 
 FlutterFeathersjs flutterFeathersJS = FlutterFeathersjs()
   ..init(baseUrl: API.baseUrl, extraHeaders: {"auth": API.secret});
- main() {
+main() {
   WidgetsFlutterBinding.ensureInitialized();
   Dio dio =
       Dio(BaseOptions(baseUrl: API.baseUrl, headers: {"auth": API.secret}));
@@ -25,7 +26,7 @@ FlutterFeathersjs flutterFeathersJS = FlutterFeathersjs()
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget  {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
@@ -33,7 +34,8 @@ class MyApp extends StatefulWidget  {
 }
 
 class _MyAppState extends State<MyApp> {
- Users? user;
+  Users? user;
+  late Group group;
 
   @override
   void initState() {
@@ -45,7 +47,6 @@ class _MyAppState extends State<MyApp> {
         print(thisUser.toString());
       }
     }
-
   }
 
   @override
@@ -75,11 +76,12 @@ class _MyAppState extends State<MyApp> {
           displaySmall: GoogleFonts.pacifico(),
         ),
       ),
-      home: user?.id != null ? WelcomeScreen(user: user!) : const LandingScreen(),
+      home:
+          user?.id != null ? WelcomeScreen(user: user!) : const LandingScreen(),
       routes: {
-        '/logout' : (context) => const LoginScreen(),
-        '/messages' : (context) => const MessagesScreen(),
-        '/settings' : (context) => const MessagesScreen()
+        '/logout': (context) => const LoginScreen(),
+        '/messages': (context) => MessagesScreen(group: group),
+        '/settings': (context) => MessagesScreen(group: group)
       },
     );
   }

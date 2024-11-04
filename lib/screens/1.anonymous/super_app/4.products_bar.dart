@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../components/request4quote/request4quoteCards.dart';
 import '../../../services/utils.dart';
 
 class ProductsAnonymousBar extends StatefulWidget {
@@ -34,7 +32,7 @@ class _ProductsAnonymousBarState extends State<ProductsAnonymousBar> {
                 ))
           ],
         ),
-        const Request4quoteCards()
+        // const Request4quoteCards()
       ]);
 
   }

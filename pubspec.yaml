@@ -1,5 +1,5 @@
-name: ~cb-project-name~
-description: ~cb-project-description~
+name: cb_project_name
+description: cb-project-description
 
 publish_to: 'none'
 
@@ -9,6 +9,8 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  animated_flip_widget: ^0.0.2
+  animated_text_kit: ^4.2.2
   change_app_package_name: ^1.4.0
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
@@ -26,6 +28,7 @@ dependencies:
   moment_dart: ^2.2.1+beta.0
   rename: ^3.0.2
   socket_io_client: ^2.0.3+1
+  syncfusion_flutter_charts: ^27.1.57
 
 dev_dependencies:
   flutter_lints: 5.0.0

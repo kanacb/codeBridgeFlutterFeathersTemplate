@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import './messages_screen.dart';
 import '../services/utils.dart';
 import 'messages_chat.dart';
+import 'group.dart';
 
 class ReceiverMessageTile extends StatelessWidget {
   ReceiverMessageTile({Key? key, required this.message}) : super(key: key);
@@ -42,8 +43,7 @@ class ReceiverMessageTile extends StatelessWidget {
       trailing: const SizedBox(width: 50),
       subtitle: Padding(
         padding: const EdgeInsets.only(left: 8, top: 4),
-        child: Text(
-            DateTime.now().toMoment().fromNow(),
+        child: Text(DateTime.now().toMoment().fromNow(),
             style: const TextStyle(fontSize: 10)),
       ),
     );

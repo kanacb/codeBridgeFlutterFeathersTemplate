@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './messages/group.dart';
+import 'group.dart';
 import '../components/users/users.dart';
 import '../screens/widgets/loading.dart';
 import '../services/utils.dart';

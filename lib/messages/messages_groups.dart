@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vx_oil_futures4/components/users/users.dart';
+import '../components/users/users.dart';
 
 import 'group.dart';
 import 'messages_screen.dart';

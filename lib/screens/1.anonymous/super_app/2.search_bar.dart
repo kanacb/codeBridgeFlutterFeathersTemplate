@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/global.dart';
+import '../../../global.dart';
 
 import '../../../components/users/users.dart';
 

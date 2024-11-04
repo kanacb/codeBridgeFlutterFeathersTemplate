@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'anonymous_trends_screen.dart';
-import 'package:vx_oil_futures4/screens/auth/login_screen.dart';
+import '../auth/login_screen.dart';
 import '../../screens/widgets/tab_bar.dart';
 import '../../services/projectServices.dart';
 import '../../global.dart';
