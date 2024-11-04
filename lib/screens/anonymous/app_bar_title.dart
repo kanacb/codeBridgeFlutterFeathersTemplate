@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/components/businesses/businessesService.dart';
+import '../../components/businesses/businessesService.dart';
 
 import '../../components/businesses/businesses.dart';
 

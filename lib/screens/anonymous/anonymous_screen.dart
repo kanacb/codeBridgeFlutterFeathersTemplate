@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/screens/anonymous/anonymous_trends_screen.dart';
-import 'package:vx_oil_futures4/screens/anonymous/welcome_screen.dart';
+import '../../screens/anonymous/anonymous_trends_screen.dart';
+import '../../screens/anonymous/welcome_screen.dart';
 
-import 'package:vx_oil_futures4/screens/auth/login_screen.dart';
+import '../../screens/auth/login_screen.dart';
 import '../../components/businesses/businesses.dart';
 import '../../components/users/users.dart';
 import '../../screens/widgets/tab_bar.dart';

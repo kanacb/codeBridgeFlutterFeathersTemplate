@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/components/profiles/profile.dart';
+import '../../components/profiles/profile.dart';
 import '../../components/profiles/profileService.dart';
 import '../../components/users/users.dart';
 import '../../global.dart';

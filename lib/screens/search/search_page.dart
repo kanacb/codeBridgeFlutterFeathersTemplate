@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/screens/search/recent_activities.dart';
-import 'package:vx_oil_futures4/screens/search/recommended_products.dart';
+import '../screens/search/recent_activities.dart';
+import '../screens/search/recommended_products.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});

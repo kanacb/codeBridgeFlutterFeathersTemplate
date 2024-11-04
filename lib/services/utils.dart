@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:vx_oil_futures4/screens/2.loggedIn/welcome_screen.dart';
+import '../screens/2.loggedIn/welcome_screen.dart';
 import '../screens/2.loggedIn/logged_in_screen.dart';
 import './projectServices.dart';
 import '../components/businesses/businesses.dart';

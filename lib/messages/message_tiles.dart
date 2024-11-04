@@ -1,8 +1,8 @@
 import 'package:moment_dart/moment_dart.dart';
-import 'package:vx_oil_futures4/messages/group.dart';
-import 'package:vx_oil_futures4/messages/message.dart';
+
+import './message.dart';
 import 'package:flutter/material.dart';
-import 'package:vx_oil_futures4/messages/messages_screen.dart';
+import './messages_screen.dart';
 import '../services/utils.dart';
 import 'messages_chat.dart';
 
